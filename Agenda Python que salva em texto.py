@@ -1,17 +1,15 @@
-import pickle
-
 def salvar_info(lista):
-    with open("contatos.bin", "wb") as arquivo:  
+    with open("contatos.txt", "wt") as arquivo:  
         for info in lista:
             arquivo.write("{}#{}#{}#\n".format(info['nome'], info['cpf'], info['tel']))
 
         arquivo.close()
 
 def carregar_info():
-  lista = []  # Initialize an empty list
+  lista = []  
 
   try:
-    arquivo = open("contatos.txt", "r")  # Try opening the file
+    arquivo = open("contatos.txt", "r") 
 
     for linha in arquivo.readlines():
       coluna = linha.strip().split("#")
